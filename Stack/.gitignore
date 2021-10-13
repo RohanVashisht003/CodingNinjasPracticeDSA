@@ -3,3 +3,8 @@
 /stackUse.class
 /StackFullException.class
 /StackEmptyException.class
+/stackUsingLinkedList.class
+/balancedParenthesis.class
+/reverseStack.class
+/redundantBrackets.class
+/stockSpan.class

@@ -1,5 +1,7 @@
 package Stack;
 
+
+
 public class stackUsingArray {
 
 	private int data[];
@@ -10,11 +12,24 @@ public class stackUsingArray {
 		topIndex = -1;
 	}
 
-	public void push(int i) throws StackFullException {
+	public stackUsingArray(int size) {
+		data = new int[size];
+		topIndex = -1;
+	}
+
+//	doubling stack capacity
+	public void doubleCapacity() {
+		int doubleData[] = new int[2 * data.length];
+		for (int i = 0; i < data.length; i++) {
+			doubleData[i] = data[i];
+		}
+		data = doubleData;
+	}
+
+	public void push(int i) {
 //		stack full exception
 		if (topIndex == data.length - 1) {
-			StackFullException e = new StackFullException();
-			throw e;
+			doubleCapacity();
 		}
 		topIndex++;
 		data[topIndex] = i;
