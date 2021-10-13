@@ -4,27 +4,25 @@ import java.util.*;
 
 public class pairWithDifferenceK {
 
-	public static int findPairsDifferenceK(int[] input, int k) {
+	public static int findPairsDifferenceK(int[] arr, int k) {
 		HashMap<Integer, Integer> map = new HashMap<>();
 		int pairs = 0;
-		for (int i = 0; i < input.length; i++) {
-			if (map.containsKey(input[i])) {
-				map.put(input[i], map.get(input[i]) + 1);
+		for (int i = 0; i < arr.length; i++) {
+			if (map.containsKey(arr[i])) {
+				map.put(arr[i], map.get(arr[i]) + 1);
 			} else {
-				map.put(input[i], 1);
+				map.put(arr[i], 1);
 			}
 		}
 
-		for (Integer key : map.keySet()) {
-			if (map.get(key) > 0) {
-				if ((map.containsKey(key - k) && map.containsKey(key)) && map.get(key - k) > 0) {
-					map.put(key, map.get(key) - 1);
-					pairs++;
-				}
-				if (map.containsKey(key + k) && map.containsKey(key + k) && map.get(key + k) > 0) {
-					map.put(key, map.get(key) - 1);
-					pairs++;
-				}
+		for (int i = 0; i < arr.length; i++) {
+			int second = k + arr[i];
+			if (map.containsKey(arr[i]) && map.containsKey(second)) {
+				if (arr[i] == second)
+					pairs += (map.get(arr[i]) * (map.get(arr[i]) - 1)) / 2;
+				else
+					pairs += map.get(arr[i]) * map.get(second);
+				map.remove(arr[i]);
 			}
 		}
 		return pairs;
