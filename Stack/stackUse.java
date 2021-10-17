@@ -14,16 +14,26 @@ public class stackUse {
 //			System.out.println(s.top());
 //		}
 //		System.out.println(s.size());
+
+//		stackUsingLinkedList<Integer> s2 = new stackUsingLinkedList<>();
+//		
+//		for(int i=0; i<4; i++) {
+//			s2.push(i+10);
+//		}
+//		
+//	System.out.println(s2.top());
+//		
+//		System.out.println(s2.size());
+
+		stackUsingTwoQueues<Integer> sq = new stackUsingTwoQueues<>();
+		sq.enqueue(10);
+		sq.enqueue(20);
+		sq.enqueue(30);
 		
-		stackUsingLinkedList<Integer> s2 = new stackUsingLinkedList<>();
 		
-		for(int i=0; i<4; i++) {
-			s2.push(i+10);
-		}
+		System.out.println(sq.front());
+		System.out.println(sq.size());
 		
-	System.out.println(s2.top());
-		
-		System.out.println(s2.size());
 	}
 
 }
