@@ -4,14 +4,53 @@ import java.util.Scanner;
 
 public class binaryTreeUse {
 
-	public static int sumOfNode(binaryTreeNode<Integer> root){
-		if(root==null) {
+	public static int greatestNode(binaryTreeNode<Integer> root) {
+		if (root == null) {
+			return Integer.MIN_VALUE;
+		}
+		int leftMax = greatestNode(root.left);
+		int rightMax = greatestNode(root.right);
+		return Math.max(root.data, Math.max(leftMax, rightMax));
+	}
+
+	public static void preOrder(binaryTreeNode<Integer> root) {
+		if (root == null) {
+			return;
+		}
+		System.out.print(root.data + " ");
+		preOrder(root.left);
+		preOrder(root.right);
+
+	}
+
+	public static void postOrder(binaryTreeNode<Integer> root) {
+		if (root == null) {
+			return;
+		}
+		postOrder(root.left);
+		postOrder(root.right);
+		System.out.print(root.data + " ");
+	}
+
+	public static void inOrder(binaryTreeNode<Integer> root) {
+		if (root == null) {
+			return;
+		}
+		inOrder(root.left);
+		System.out.print(root.data + " ");
+		inOrder(root.right);
+
+	}
+
+	public static int sumOfNode(binaryTreeNode<Integer> root) {
+		if (root == null) {
 			return 0;
 		}
 		int leftsum = sumOfNode(root.left);
 		int rightsum = sumOfNode(root.right);
-		return root.data+leftsum+rightsum;
+		return root.data + leftsum + rightsum;
 	}
+
 	public static int countNodes(binaryTreeNode<Integer> root) {
 		if (root == null) {
 			return 0;
@@ -109,9 +148,15 @@ public class binaryTreeUse {
 ////		printTree(root);
 //		printingDetailed(root);
 		binaryTreeNode<Integer> root = takeInputBetter(true, 0, false);
-		printingDetailed(root);
-		System.out.println(countNodes(root));
-		System.out.println(sumOfNode(root));
+//		printingDetailed(root);
+//		System.out.println(countNodes(root));
+//		System.out.println(sumOfNode(root));
+		preOrder(root);
+		System.out.println();
+//		postOrder(root);
+//		System.out.println();
+//		inOrder(root);
+		System.out.print(greatestNode(root));
 	}
 
 }
