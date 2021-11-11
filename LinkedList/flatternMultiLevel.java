@@ -20,6 +20,20 @@ public class flatternMultiLevel {
 	static Node2 tail;
 	static int size;
 
+	public static Node2 flatternListDepthWise(Node2 hp) {
+		if (hp == null) {
+			return null;
+		}
+		Node2 next = hp.next;
+		hp.next = flatternListDepthWise(hp.down);
+		Node2 tail = hp;
+		while (tail.next != null) {
+			tail = tail.next;
+		}
+		tail.next = flatternListDepthWise(next);
+		return hp;
+	}
+
 	public static void flattenListCorrect(Node2 hp) {
 
 		if (hp == null) {
@@ -100,7 +114,7 @@ public class flatternMultiLevel {
 				continue;
 			}
 		}
-		flattenListCorrect(head);
+		flatternListDepthWise(head);
 		display(head);
 
 	}

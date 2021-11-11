@@ -7,11 +7,11 @@ class DoubleNode {
 	Node<Integer> tail;
 
 	public DoubleNode() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public DoubleNode(Node<Integer> head, Node<Integer> tail) {
-		// TODO Auto-generated constructor stub
+		
 		this.head = head;
 		this.tail = tail;
 	}
@@ -96,9 +96,9 @@ public class LinkedListUse {
 		if (head == null || head.next == null) {
 			return head;
 		}
-
+		
 		Node<Integer> reverseHead = reverseRecursive(head.next);
-		head.next.next = head;
+		head.next.next = head;	
 		head.next = null;
 		return reverseHead;
 	}
