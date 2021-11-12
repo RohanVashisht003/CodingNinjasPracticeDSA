@@ -50,10 +50,11 @@ class DoublyLinkedList {
 	}
 
 	private void addFirstWorking(int data) {
+		DoublyLinkedListNode<Integer> newNode = new DoublyLinkedListNode<Integer>(data);
 		if (size() == 0) {
-			LinkedListInvalidIndex();
+			head=tail= newNode;
 		} else {
-			DoublyLinkedListNode<Integer> newNode = new DoublyLinkedListNode<Integer>(data);
+			
 			newNode.next = head;
 			head.prev = newNode;
 			head = head.prev;
