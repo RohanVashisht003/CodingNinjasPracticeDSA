@@ -34,3 +34,9 @@
 /DoublyLinkedListUse.class
 /DoublyLinkedList.class
 /DoublyLinkedList$DoublyLinkedListNode.class
+/LRU.class
+/Cache$LRU.class
+/Cache.class
+/LRUCache.class
+/LRUCache$Node.class
+/LRUCache$LRU.class
